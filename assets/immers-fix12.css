@@ -99,14 +99,14 @@ main[data-view="game"] .stage canvas{
   display:block;
   width:100%;
   height:auto;
-  aspect-ratio:140/124;
+  aspect-ratio:164/144;
   image-rendering:pixelated;
   image-rendering:crisp-edges;
   pointer-events:none;
 }
 .outfit-pv-lg{
   width:100%;
-  height:280px;
+  height:300px;
   aspect-ratio:auto;
   max-height:none;
   image-rendering:pixelated;
@@ -117,7 +117,7 @@ main[data-view="game"] .stage canvas{
   flex-direction:column;
   align-items:center;
   gap:.2rem;
-  padding:.15rem .15rem .45rem;
+  padding:.35rem .2rem .5rem;
   min-height:0;
   font-size:.85rem;
   line-height:1.2;
@@ -127,16 +127,16 @@ main[data-view="game"] .stage canvas{
   width:100%;
 }
 .outfit-pv-wrap{
-  width:88px;
-  height:78px;
+  width:164px;
+  height:144px;
   overflow:hidden;
+  flex-shrink:0;
   border:1px solid var(--color-line, #d8d0c0);
   background:transparent;
 }
 .outfit-pv-wrap .outfit-pv{
-  width:88px;
-  height:78px;
-  object-fit:cover;
+  width:164px;
+  height:144px;
 }
 
 .outfit-locked{opacity:.85}
