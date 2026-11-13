@@ -142,3 +142,100 @@ main[data-view="game"] .stage canvas{
 .outfit-locked{opacity:.85}
 .outfit-row-on{outline:2px solid var(--color-ink,#2a261f);outline-offset:-1px}
 .outfit-pv-wrap{cursor:pointer}
+
+/* in-game mosaic skill buttons */
+.play-skills{
+  position:absolute;
+  z-index:6;
+  pointer-events:auto;
+  gap:8px;
+}
+.play-skills-l{
+  left:14px;
+  top:5.75rem;
+  display:flex;
+  flex-direction:column;
+}
+.play-skills-r{
+  right:14px;
+  bottom:16px;
+  display:flex;
+  flex-direction:row;
+}
+.play-skill{
+  --cd:0;
+  --sz:72px;
+  box-sizing:border-box;
+  width:var(--sz);
+  height:var(--sz);
+  margin:0;
+  padding:0;
+  border:3px solid #2a261f;
+  border-radius:0;
+  background-color:rgba(243,236,220,.78);
+  background-image:
+    linear-gradient(45deg,rgba(42,38,31,.08) 25%,transparent 25%,transparent 75%,rgba(42,38,31,.08) 75%),
+    linear-gradient(45deg,rgba(42,38,31,.08) 25%,transparent 25%,transparent 75%,rgba(42,38,31,.08) 75%);
+  background-size:8px 8px;
+  background-position:0 0,4px 4px;
+  box-shadow:4px 4px 0 #141210,inset 2px 2px 0 rgba(255,252,245,.45),inset -2px -2px 0 rgba(42,38,31,.22);
+  color:#2a261f;
+  display:grid;
+  place-items:center;
+  position:relative;
+  cursor:pointer;
+  appearance:none;
+  -webkit-appearance:none;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  image-rendering:pixelated;
+  image-rendering:crisp-edges;
+  pointer-events:auto;
+  flex-shrink:0;
+}
+.play-skill svg{
+  width:40px;
+  height:40px;
+  display:block;
+  overflow:visible;
+  image-rendering:pixelated;
+  pointer-events:none;
+  position:relative;
+  z-index:1;
+}
+.play-skill::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  pointer-events:none;
+  z-index:2;
+  background:conic-gradient(from 0deg,rgba(20,18,16,.62) calc(var(--cd,0)*360deg),transparent 0);
+  opacity:0;
+}
+.play-skill[data-cooling="1"]::after{opacity:1}
+main[data-view="game"] .play-skill[data-cooling="1"]{opacity:.9}
+.play-skill[data-active="1"]{
+  background-color:rgba(63,107,69,.88);
+  border-color:#1e3a22;
+  color:#f3ecdc;
+  box-shadow:4px 4px 0 #141210,inset 2px 2px 0 rgba(243,236,220,.28),inset -2px -2px 0 rgba(20,18,16,.25);
+}
+.play-skill:active,
+.play-skill[data-active="1"]{
+  transform:translate(2px,2px);
+  box-shadow:inset 2px 2px 0 rgba(20,18,16,.5),inset -1px -1px 0 rgba(243,236,220,.2);
+}
+@media (max-width:700px){
+  .play-skill{--sz:60px}
+  .play-skill svg{width:32px;height:32px}
+  .play-skills-l{left:8px;top:5.2rem}
+  .play-skills-r{right:8px;bottom:10px}
+}
+@media (max-height:420px){
+  .play-skill{--sz:52px}
+  .play-skill svg{width:28px;height:28px}
+  .play-skills-l{top:4.4rem}
+  .play-skills-r{bottom:8px;gap:6px}
+}
