@@ -152,9 +152,9 @@ main[data-view="game"] .stage canvas{
 }
 .play-skills-l{
   left:14px;
-  top:5.75rem;
+  bottom:16px;
   display:flex;
-  flex-direction:column;
+  flex-direction:row;
 }
 .play-skills-r{
   right:14px;
@@ -230,12 +230,12 @@ main[data-view="game"] .play-skill[data-cooling="1"]{opacity:.9}
 @media (max-width:700px){
   .play-skill{--sz:60px}
   .play-skill svg{width:32px;height:32px}
-  .play-skills-l{left:8px;top:5.2rem}
+  .play-skills-l{left:8px;bottom:10px}
   .play-skills-r{right:8px;bottom:10px}
 }
 @media (max-height:420px){
   .play-skill{--sz:52px}
   .play-skill svg{width:28px;height:28px}
-  .play-skills-l{top:4.4rem}
+  .play-skills-l{bottom:8px}
   .play-skills-r{bottom:8px;gap:6px}
 }
